@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Skin Cancer Detection</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/form_upload.css" rel="stylesheet">
+    <link href="../static/css/custom.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-custom">
+     
+    <div class="container mt-0">
+    
+      <div class="row text-white">
+        <div class="col-9">
+          <h1><a href="/" >Brain Tumour Segmentation</a></h1>
+
+        </div>
+        <!-- <div class="col-3">
+          <p class="float-right h5"><a href="/about" >About</a></p>
+        </div> -->
+      </div>  
+      
+      
+      <div class="form">
+        <form class="form-upload" method=post enctype=multipart/form-data>
+          <h1 class="h3 mb-3 font-weight-normal text-light">Please upload image</h1>
+          <input type="file" id="image" name="image" class="form-control" required autofocus>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Segment</button>
+        </form>
+      </div>
+
+      <br>
+      {% if image_loc %}
+          <img src="static/{{image_loc}}" class = "img" alt="" height="256">
+          <!-- <h3 class="h3 mb-3 font-weight-normal">Prediction: {{prediction}}</h3> -->
+      {%endif%}
+
+      <br>
+
+      <div class="row text-white">
+        <p>This webapp can be used to perform segmentation on brain MRI images. This webapp can be used to perform segmentation on brain MRI images. It features a UNet model with added batch normalization layers for optimal performance. The model is trained on a publicly available Kaggle dataset (see credits below), and can be used for fast inferencing through the Flask webapp. The app will create a segmentation mask filling any tumours or masses in a FLAIR enhanced MRI image, and if no tumours are detected, it will create a blank (default) mask. </p>
+        <p>Credits: Kaggle dataset: https://www.kaggle.com/mateuszbuda/lgg-mri-segmentation</p>
+      </div>
+     
+    </div>
+    
+  </body>
+</html>
