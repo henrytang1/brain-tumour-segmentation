@@ -12,3 +12,4 @@ main.py
 .DS_Store
 whatever.py
 requirements.txt
+.ipynb_checkpoints
