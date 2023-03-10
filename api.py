@@ -142,37 +142,6 @@ def process_image(data_transforms, path_name, image_name, filemodel):
         # plt.show()
 
 
-
-# @app.route("/", methods=["GET", "POST"])
-# def upload_predict():
-#     if request.method == "POST":
-#         image_file = request.files["image"]
-#         if image_file:
-#             image_location = os.path.join(
-#                 upload_folder,
-#                 image_file.filename
-#             )
-#             image_file.save(image_location)
-
-#             image_name = os.path.basename(image_location)
-#             image_name = image_name.split('.')[0]
-#             print(image_name)
-
-#             # print(image_file)
-#             # print(image_location)
-#             # pred = 1
-#             # pred = predict(image_location, MODEL)[0]
-#             process_image(data_transforms, image_location, image_name, model)
-
-#             # print("%s/%s-NEW.png" % (upload_folder, image_name))
-
-#             print("%s-NEW.png" % image_name)
-#             # return render_template("index.html", image_loc = ("%s-NEW.png" % image_name))
-#             # print(image_file.filename)
-#             return render_template("index.html", image_loc = image_file.filename)
-
-#     return render_template("index.html", image_loc=None)
-
 @app.route("/", methods=["GET", "POST"])
 def upload_predict():
     if request.method == "POST":
@@ -215,25 +184,5 @@ if __name__ == "__main__":
         transforms.Resize(256),
         transforms.ToTensor()
     ])
-
-    # img_path = "./static/thing2.tiff"
-    # process_image(data_transforms, img_path, "hi", model)
-
-    # img = image_loader(data_transforms, img_path)
-    # pred = model(img)
-
-    # # plt.figure(figsize=(3,2))
-    # plt.subplot(1,2,1)
-    # plt.imshow(np.squeeze(img.cpu().numpy()).transpose(1,2,0))
-    # plt.title('Original Image')
-    # # plt.subplot(1,3,2)
-    # # plt.imshow((mask.cpu().numpy()).transpose(1,2,0).squeeze(axis=2), alpha=0.5)
-    # # plt.title('Original Mask')
-    # plt.subplot(1,2,2)
-    # plt.imshow(np.squeeze(pred.cpu()) > .5)
-    # plt.title('Prediction')
-    # plt.show()
-    
-    # process_image()
 
     app.run(host="0.0.0.0", port=12000, debug=True)
